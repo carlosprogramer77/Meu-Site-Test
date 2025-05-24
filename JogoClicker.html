@@ -40,6 +40,10 @@
   function preload() {}
 
   function create() {
+    //Esconder barra do navegador
+ setTimeout(()=>{
+ window.scrollTo(0,1);  },200 );
+    
     // Texto de Pontos
     scoreText = this.add.text(450, 100, 'Pontos: 0', {
       fontSize: '32px',

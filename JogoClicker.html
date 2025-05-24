@@ -1,8 +1,68 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title> Jogo Clicker </title>
- </head>
+  <meta charset="UTF-8">
+  <title>Clicker Game</title>
+  <script src="phaser.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    canvas {
+      border: 2px solid white;
+    }
+  </style>
+</head>
 <body>
-   <button> Me toque </button> 
-</body> 
- </html>
+<script>
+  const config = {
+    type: Phaser.AUTO,
+    width: 800,
+    height: 400,
+    backgroundColor: '#3498db',
+    scene: {
+      preload: preload,
+      create: create,
+      update: update
+    }
+  };
+
+  let game = new Phaser.Game(config);
+  let score = 0;
+  let scoreText;
+
+  function preload() {}
+
+  function create() {
+    // Texto de Pontos
+    scoreText = this.add.text(400, 100, 'Pontos: 0', {
+      fontSize: '32px',
+      color: '#ffffff'
+    }).setOrigin(0.5);
+
+    // Botão
+    const botao = this.add.text(400, 200, 'CLIQUE AQUI', {
+      fontSize: '28px',
+      backgroundColor: '#2ecc71',
+      padding: { x: 20, y: 10 },
+      color: '#000',
+      borderRadius: '10px'
+    }).setOrigin(0.5).setInteractive();
+
+botao.on('pointerdown', () => {
+  score += 1; scoreText.setText('Pontos: ' + score);
+    });
+  }
+
+  function update() {
+    }
+  
+</script>
+</body>
+</html>
